@@ -900,6 +900,35 @@ a { color: inherit; }
   margin-bottom: 10px;
 }
 
+/* ── Scrollbars customizadas ─────────────────────────── */
+.app-sidebar,
+.app-main {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3f5c #12141c;
+}
+
+.app-sidebar::-webkit-scrollbar,
+.app-main::-webkit-scrollbar {
+  width: 5px;
+}
+
+.app-sidebar::-webkit-scrollbar-track,
+.app-main::-webkit-scrollbar-track {
+  background: #12141c;
+  border-radius: 4px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb,
+.app-main::-webkit-scrollbar-thumb {
+  background: #3a3f5c;
+  border-radius: 4px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb:hover,
+.app-main::-webkit-scrollbar-thumb:hover {
+  background: var(--amber);
+}
+
 .modal-body {
   font-family: var(--font-body);
   font-size: 0.85rem;
