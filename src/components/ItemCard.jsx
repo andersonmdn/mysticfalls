@@ -29,15 +29,27 @@ export default function ItemCard({ name, qty, totalQty, sources }) {
       <div className="item-info">
         <span className="rarity-badge">{rarity}</span>
         <div className="item-name">{name}</div>
+
         <div className="item-qty">
-          <span className="qty-total" title="Total necessário para maxar as estruturas selecionadas">{totalQty}x</span>
+          <div className="qty-row">
+            <span className="qty-label">Total</span>
+            <span className="qty-total">{totalQty}×</span>
+          </div>
           {totalQty > qty && (
-            <span className="qty-detail" title="Necessário apenas para o próximo upgrade"> ({qty}x próximo)</span>
+            <div className="qty-row">
+              <span className="qty-label">Próximo</span>
+              <span className="qty-next">{qty}×</span>
+            </div>
           )}
         </div>
+
         <div className="item-sources">
           {sources.map((s, i) => (
-            <span key={i} className={`source-badge source-${s.buildingId}`}>
+            <span
+              key={i}
+              className="source-badge"
+              aria-label={`${s.buildingName} nível ${s.level}`}
+            >
               {s.buildingIcon} L{s.level}
             </span>
           ))}
