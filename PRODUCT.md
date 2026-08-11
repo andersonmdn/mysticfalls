@@ -26,4 +26,4 @@ Mobile-first Mistfall Hunter players. Opened daily, briefly, during or after pla
 - Rarity system and color coding
 - localStorage persistence
 - Filter behavior (building, rarity, search, próximo nível)
-- Source attribution (Game Rant / Fandom Wiki)
+- Source attribution (Fandom Wiki)

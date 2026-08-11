@@ -44,6 +44,3 @@ Os dados de upgrade ficam em `src/data/upgrades.js`. Cada estrutura lista os ite
 }
 ```
 
-## Fonte dos dados
-
-Itens e quantidades extraídos do guia publicado no [Game Rant](https://gamerant.com/mistfall-hunter-what-to-upgrade-first-camp-workstations/). Alguns níveis ainda não foram publicados e aparecem como **Em Breve** no site original.

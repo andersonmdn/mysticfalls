@@ -207,7 +207,7 @@ export default function App() {
         />
 
         <footer className="app-footer">
-          <p>Dados de <a href="https://gamerant.com/mistfall-hunter-what-to-upgrade-first-camp-workstations/" target="_blank" rel="noopener noreferrer">Game Rant</a>. Imagens via Fandom Wiki.</p>
+          <p>Imagens via Fandom Wiki.</p>
         </footer>
       </main>
 
