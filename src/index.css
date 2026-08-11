@@ -175,19 +175,6 @@ a { color: inherit; }
   border: 1px solid var(--amber-border);
 }
 
-.header-source-link {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  border: 1px solid var(--border);
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s;
-  flex-shrink: 0;
-}
-.header-source-link:hover { color: var(--amber); border-color: var(--amber-border); }
 
 /* Banners */
 .app-banners {
@@ -454,11 +441,8 @@ a { color: inherit; }
 .level-ticks {
   display: flex;
   gap: 2px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding-bottom: 2px;
+  flex-wrap: wrap;
 }
-.level-ticks::-webkit-scrollbar { display: none; }
 
 .tick {
   flex-shrink: 0;

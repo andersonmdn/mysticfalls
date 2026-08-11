@@ -154,18 +154,9 @@ export default function App() {
           </div>
 
           <div className="header-stats" aria-label="Progresso do acampamento">
-            <span className="header-stat header-stat-maxed">{maxedCount}/{buildings.length} maxed</span>
-            <span className="header-stat header-stat-pending">{pendingCount} upgrades pendentes</span>
+            <span className="header-stat header-stat-maxed">{maxedCount}/{buildings.length} no máx.</span>
+            <span className="header-stat header-stat-pending">{pendingCount} níveis pendentes</span>
           </div>
-
-          <a
-            href="https://gamerant.com/mistfall-hunter-what-to-upgrade-first-camp-workstations/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="header-source-link"
-          >
-            📖 Guia
-          </a>
         </div>
 
         {storageError && (

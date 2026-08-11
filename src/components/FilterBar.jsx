@@ -55,7 +55,7 @@ export default function FilterBar({
           <span className="toggle-track" aria-hidden="true">
             <span className="toggle-thumb" />
           </span>
-          <span>Só próximo nível</span>
+          <span>{onlyNext ? 'Apenas próximo nível' : 'Todos os próximos níveis'}</span>
         </label>
 
         {hasActiveFilter && (
