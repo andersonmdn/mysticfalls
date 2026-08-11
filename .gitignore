@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Arquivos de ambiente local
+*.local
+.env
+.env.*
+!.env.example
+
+# Ferramentas locais (não pertencem ao repo)
+.claude/
+.impeccable/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/extensions.json

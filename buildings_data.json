@@ -1,0 +1,1089 @@
+{
+  "workshop": {
+    "maxLevel": 8,
+    "levels": {
+      "2": [
+        {
+          "name": "Soulcall Flute",
+          "qty": 1
+        },
+        {
+          "name": "Copper Button",
+          "qty": 2
+        },
+        {
+          "name": "Charcoal",
+          "qty": 2
+        }
+      ],
+      "3": [
+        {
+          "name": "Mithril Lamp",
+          "qty": 1
+        },
+        {
+          "name": "Mixed Spices",
+          "qty": 1
+        },
+        {
+          "name": "Slime",
+          "qty": 1
+        },
+        {
+          "name": "Mutant Mycelium",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Blessing Sachet",
+          "qty": 1
+        },
+        {
+          "name": "Gem Mirror",
+          "qty": 1
+        },
+        {
+          "name": "Blood Moss",
+          "qty": 1
+        }
+      ],
+      "5": [
+        {
+          "name": "Gilded Ring",
+          "qty": 1
+        },
+        {
+          "name": "Hastain&#x27;s Tear",
+          "qty": 1
+        },
+        {
+          "name": "Ritual Severed Dagger",
+          "qty": 1
+        },
+        {
+          "name": "Mythic Panel",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Wolfrunner&#x27;s Armband",
+          "qty": 1
+        },
+        {
+          "name": "Blessing Sachet",
+          "qty": 1
+        },
+        {
+          "name": "Ornamental Orb",
+          "qty": 1
+        }
+      ],
+      "7": [
+        {
+          "name": "Immaculate Egg",
+          "qty": 1
+        },
+        {
+          "name": "Frostbee Crystal Hive",
+          "qty": 1
+        },
+        {
+          "name": "Soulcomb Net",
+          "qty": 2
+        }
+      ],
+      "8": [
+        {
+          "name": "Abyssal Dragon Egg",
+          "qty": 1
+        },
+        {
+          "name": "Wolfrunner&#x27;s Armband",
+          "qty": 1
+        },
+        {
+          "name": "Holy Sith Astrolabe",
+          "qty": 1
+        },
+        {
+          "name": "Mithril Lamp",
+          "qty": 2
+        }
+      ]
+    }
+  },
+  "warehouse": {
+    "maxLevel": 13,
+    "levels": {
+      "2": [
+        {
+          "name": "Pearl Dust",
+          "qty": 1
+        },
+        {
+          "name": "Copper Button",
+          "qty": 2
+        },
+        {
+          "name": "Fine Salt",
+          "qty": 2
+        },
+        {
+          "name": "Fishbone",
+          "qty": 2
+        }
+      ],
+      "3": [
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        },
+        {
+          "name": "Norgard King&#x27;s Coin",
+          "qty": 1
+        },
+        {
+          "name": "Fortune Bean",
+          "qty": 2
+        },
+        {
+          "name": "Spiritwood Pin",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Soul Jar",
+          "qty": 1
+        },
+        {
+          "name": "Ornamental Orb",
+          "qty": 1
+        },
+        {
+          "name": "Slumbering Dragon Statue",
+          "qty": 1
+        },
+        {
+          "name": "Silver Bowl",
+          "qty": 2
+        }
+      ],
+      "5": [
+        {
+          "name": "Hastain&#x27;s Tear",
+          "qty": 1
+        },
+        {
+          "name": "Frostbee Crystal Hive",
+          "qty": 1
+        },
+        {
+          "name": "Gem Mirror",
+          "qty": 2
+        },
+        {
+          "name": "Hallowgrove Codex",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Kjernnos Idol",
+          "qty": 1
+        },
+        {
+          "name": "Velvar&#x27;s Teachings",
+          "qty": 1
+        },
+        {
+          "name": "Blessing Sachet",
+          "qty": 1
+        },
+        {
+          "name": "Pathfinder Lantern",
+          "qty": 2
+        }
+      ],
+      "7": [
+        {
+          "name": "Sage&#x27;s Golden Mask",
+          "qty": 1
+        },
+        {
+          "name": "Gold Ship Sculpture",
+          "qty": 1
+        },
+        {
+          "name": "Obsidian Raven",
+          "qty": 1
+        },
+        {
+          "name": "Obsidian Ore",
+          "qty": 2
+        }
+      ],
+      "8": [
+        {
+          "name": "Abyssal Dragon Egg",
+          "qty": 1
+        },
+        {
+          "name": "Retribution Spearhead",
+          "qty": 1
+        },
+        {
+          "name": "Gilded Ring",
+          "qty": 2
+        },
+        {
+          "name": "Spellbound Doll",
+          "qty": 2
+        }
+      ],
+      "9": [
+        {
+          "name": "Blazing Sun Chariot",
+          "qty": 1
+        },
+        {
+          "name": "Immaculate Egg",
+          "qty": 1
+        },
+        {
+          "name": "Dragonblood Essence",
+          "qty": 1
+        },
+        {
+          "name": "Lost Pontiff&#x27;s Crown",
+          "qty": 1
+        }
+      ],
+      "10": [
+        {
+          "name": "Stardust Bloom",
+          "qty": 1
+        },
+        {
+          "name": "Retribution Spearhead",
+          "qty": 1
+        },
+        {
+          "name": "Vronn&#x27;s Forging Hammer",
+          "qty": 1
+        },
+        {
+          "name": "Kjernnos Idol",
+          "qty": 1
+        }
+      ],
+      "11": [
+        {
+          "name": "Gem of the Gods",
+          "qty": 1
+        },
+        {
+          "name": "Immaculate Egg",
+          "qty": 1
+        },
+        {
+          "name": "Wolfrunner&#x27;s Armband",
+          "qty": 1
+        },
+        {
+          "name": "Golden Anchor Chain",
+          "qty": 1
+        }
+      ],
+      "12": [
+        {
+          "name": "Gem of the Gods",
+          "qty": 1
+        },
+        {
+          "name": "Abyssal Dragon Egg",
+          "qty": 1
+        },
+        {
+          "name": "Blazing Sun Chariot",
+          "qty": 1
+        },
+        {
+          "name": "Lost Pontiff&#x27;s Crown",
+          "qty": 1
+        }
+      ],
+      "13": [
+        {
+          "name": "Gem of the Gods",
+          "qty": 1
+        },
+        {
+          "name": "Faded Divine Tree Heart",
+          "qty": 1
+        },
+        {
+          "name": "Sage&#x27;s Golden Mask",
+          "qty": 1
+        },
+        {
+          "name": "Dragonblood Essence",
+          "qty": 1
+        }
+      ]
+    }
+  },
+  "soulcatch_tree": {
+    "maxLevel": 8,
+    "levels": {
+      "2": [
+        {
+          "name": "Blood Moss",
+          "qty": 1
+        },
+        {
+          "name": "Spiritwood Pin",
+          "qty": 1
+        },
+        {
+          "name": "Pottery Shard",
+          "qty": 3
+        }
+      ],
+      "3": [
+        {
+          "name": "Bloodstained Brooch",
+          "qty": 1
+        },
+        {
+          "name": "Crimson Bat Eye",
+          "qty": 1
+        },
+        {
+          "name": "Needle Case",
+          "qty": 2
+        },
+        {
+          "name": "Herb Bundle",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Obsidian Ore",
+          "qty": 2
+        },
+        {
+          "name": "Mithril Lamp",
+          "qty": 1
+        },
+        {
+          "name": "Thunder Ore",
+          "qty": 1
+        }
+      ],
+      "5": [
+        {
+          "name": "Gold Ship Sculpture",
+          "qty": 1
+        },
+        {
+          "name": "Fire Salamander Fossil",
+          "qty": 1
+        },
+        {
+          "name": "Ritual Severed Dagger",
+          "qty": 1
+        },
+        {
+          "name": "Crimson Bat Eye",
+          "qty": 1
+        }
+      ],
+      "6": [
+        {
+          "name": "Wolfrunner&#x27;s Armband",
+          "qty": 1
+        },
+        {
+          "name": "Obsidian Raven",
+          "qty": 1
+        },
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        }
+      ],
+      "7": [
+        {
+          "name": "Sage&#x27;s Golden Mask",
+          "qty": 1
+        },
+        {
+          "name": "Frostbee Crystal Hive",
+          "qty": 1
+        },
+        {
+          "name": "Hastain&#x27;s Tear",
+          "qty": 1
+        }
+      ],
+      "8": [
+        {
+          "name": "Stardust Bloom",
+          "qty": 1
+        },
+        {
+          "name": "Vronn&#x27;s Forging Hammer",
+          "qty": 1
+        },
+        {
+          "name": "Soul Jar",
+          "qty": 1
+        }
+      ]
+    }
+  },
+  "stardust_altar": {
+    "maxLevel": 4,
+    "levels": {
+      "2": null,
+      "3": null,
+      "4": null
+    }
+  },
+  "tavern": {
+    "maxLevel": 4,
+    "levels": {
+      "2": [
+        {
+          "name": "Norgard King&#x27;s Coin",
+          "qty": 2
+        },
+        {
+          "name": "Ritual Severed Dagger",
+          "qty": 2
+        },
+        {
+          "name": "Crimson Bat Eye",
+          "qty": 2
+        },
+        {
+          "name": "Bone Lyre",
+          "qty": 1
+        }
+      ],
+      "3": [
+        {
+          "name": "Gold Ship Sculpture",
+          "qty": 1
+        },
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        },
+        {
+          "name": "Incense Burner",
+          "qty": 2
+        },
+        {
+          "name": "Veteran Medal",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Blazing Sun Chariot",
+          "qty": 1
+        },
+        {
+          "name": "Ornamental Orb",
+          "qty": 2
+        },
+        {
+          "name": "Mythic Panel",
+          "qty": 2
+        },
+        {
+          "name": "Silver Bowl",
+          "qty": 2
+        }
+      ]
+    }
+  },
+  "shop": {
+    "maxLevel": 6,
+    "levels": {
+      "2": [
+        {
+          "name": "Velgr Feather",
+          "qty": 1
+        },
+        {
+          "name": "Slime",
+          "qty": 1
+        },
+        {
+          "name": "Vine Bundle",
+          "qty": 2
+        },
+        {
+          "name": "Fishbone",
+          "qty": 2
+        }
+      ],
+      "3": [
+        {
+          "name": "Gem Mirror",
+          "qty": 1
+        },
+        {
+          "name": "Pearl Dust",
+          "qty": 2
+        },
+        {
+          "name": "Needle Case",
+          "qty": 2
+        },
+        {
+          "name": "Herb Bundle",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Bloodstained Brooch",
+          "qty": 2
+        },
+        {
+          "name": "Thunder Ore",
+          "qty": 2
+        },
+        {
+          "name": "Fine Salt",
+          "qty": 2
+        },
+        {
+          "name": "Ornate Wooden Box",
+          "qty": 2
+        }
+      ],
+      "5": [
+        {
+          "name": "Velvar&#x27;s Teachings",
+          "qty": 1
+        },
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        },
+        {
+          "name": "Mithril Lamp",
+          "qty": 1
+        },
+        {
+          "name": "Soulcall Flute",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Celestigold",
+          "qty": 1
+        },
+        {
+          "name": "Gilded Ring",
+          "qty": 1
+        },
+        {
+          "name": "Slumbering Dragon Statue",
+          "qty": 1
+        },
+        {
+          "name": "Mixed Spices",
+          "qty": 2
+        }
+      ]
+    }
+  },
+  "scavenger_squad": {
+    "maxLevel": 8,
+    "levels": {
+      "2": [
+        {
+          "name": "Bone Lyre",
+          "qty": 1
+        },
+        {
+          "name": "Needle Case",
+          "qty": 1
+        },
+        {
+          "name": "Charcoal",
+          "qty": 2
+        }
+      ],
+      "3": [
+        {
+          "name": "Dragonflame Bone",
+          "qty": 1
+        },
+        {
+          "name": "Fortune Bean",
+          "qty": 2
+        },
+        {
+          "name": "Slime",
+          "qty": 2
+        },
+        {
+          "name": "Ornate Wooden Box",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Soul Jar",
+          "qty": 1
+        },
+        {
+          "name": "Hallowgrove Codex",
+          "qty": 1
+        },
+        {
+          "name": "Silver Bowl",
+          "qty": 1
+        },
+        {
+          "name": "Glintstone",
+          "qty": 2
+        }
+      ],
+      "5": [
+        {
+          "name": "Obsidian Raven",
+          "qty": 1
+        },
+        {
+          "name": "Hastain&#x27;s Tear",
+          "qty": 1
+        },
+        {
+          "name": "Pathfinder Lantern",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Sage&#x27;s Golden Mask",
+          "qty": 1
+        },
+        {
+          "name": "Holy Sith Astrolabe",
+          "qty": 1
+        },
+        {
+          "name": "Bloodstained Brooch",
+          "qty": 2
+        }
+      ],
+      "7": [
+        {
+          "name": "Dragonblood Essence",
+          "qty": 1
+        },
+        {
+          "name": "Penitent&#x27;s Tear",
+          "qty": 2
+        },
+        {
+          "name": "Fire Salamander Fossil",
+          "qty": 1
+        }
+      ],
+      "8": [
+        {
+          "name": "Faded Divine Tree Heart",
+          "qty": 1
+        },
+        {
+          "name": "Vronn&#x27;s Forging Hammer",
+          "qty": 1
+        },
+        {
+          "name": "Velvar&#x27;s Teachings",
+          "qty": 1
+        }
+      ]
+    }
+  },
+  "gyldenblod_pool": {
+    "maxLevel": 9,
+    "levels": {
+      "2": [
+        {
+          "name": "Incense Burner",
+          "qty": 2
+        },
+        {
+          "name": "Velgr Feather",
+          "qty": 2
+        },
+        {
+          "name": "Lynx Whiskers",
+          "qty": 3
+        },
+        {
+          "name": "Tarred Rope",
+          "qty": 3
+        }
+      ],
+      "3": [
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        },
+        {
+          "name": "Spirit Antler",
+          "qty": 2
+        },
+        {
+          "name": "Veteran Medal",
+          "qty": 2
+        },
+        {
+          "name": "Heavy Stone Block",
+          "qty": 1
+        }
+      ],
+      "4": [
+        {
+          "name": "Penitent&#x27;s Tear",
+          "qty": 1
+        },
+        {
+          "name": "Slumbering Dragon Statue",
+          "qty": 1
+        },
+        {
+          "name": "Pearl Dust",
+          "qty": 1
+        },
+        {
+          "name": "Lazurite",
+          "qty": 2
+        }
+      ],
+      "5": [
+        {
+          "name": "Velvar&#x27;s Teachings",
+          "qty": 1
+        },
+        {
+          "name": "Obsidian Raven",
+          "qty": 1
+        },
+        {
+          "name": "Holy Sith Astrolabe",
+          "qty": 1
+        },
+        {
+          "name": "Soulcomb Net",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Abyssal Dragon Egg",
+          "qty": 1
+        },
+        {
+          "name": "Messenger Bug Jar",
+          "qty": 1
+        },
+        {
+          "name": "Ritual Severed Dagger",
+          "qty": 2
+        }
+      ],
+      "7": [
+        {
+          "name": "Golden Anchor Chain",
+          "qty": 1
+        },
+        {
+          "name": "Vronn&#x27;s Forging Hammer",
+          "qty": 1
+        },
+        {
+          "name": "Penitent&#x27;s Tear",
+          "qty": 1
+        }
+      ],
+      "8": [
+        {
+          "name": "Retribution Spearhead",
+          "qty": 1
+        },
+        {
+          "name": "Lost Pontiff&#x27;s Crown",
+          "qty": 1
+        },
+        {
+          "name": "Wolfrunner&#x27;s Armband",
+          "qty": 1
+        },
+        {
+          "name": "Fire Salamander Fossil",
+          "qty": 2
+        }
+      ],
+      "9": [
+        {
+          "name": "Kjernnos Idol",
+          "qty": 1
+        },
+        {
+          "name": "Golden Anchor Chain",
+          "qty": 1
+        },
+        {
+          "name": "Immaculate Egg",
+          "qty": 1
+        },
+        {
+          "name": "Blazing Sun Chariot",
+          "qty": 1
+        }
+      ]
+    }
+  },
+  "auction_house": {
+    "maxLevel": 6,
+    "levels": {
+      "2": [
+        {
+          "name": "Gem Mirror",
+          "qty": 1
+        },
+        {
+          "name": "Mixed Spices",
+          "qty": 2
+        },
+        {
+          "name": "Soulcall Flute",
+          "qty": 2
+        },
+        {
+          "name": "Glintstone",
+          "qty": 2
+        }
+      ],
+      "3": [
+        {
+          "name": "Norgard King&#x27;s Coin",
+          "qty": 2
+        },
+        {
+          "name": "Mithril Lamp",
+          "qty": 2
+        },
+        {
+          "name": "Bone Lyre",
+          "qty": 2
+        },
+        {
+          "name": "Blood Moss",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Spellbound Doll",
+          "qty": 1
+        },
+        {
+          "name": "Blessing Sachet",
+          "qty": 1
+        },
+        {
+          "name": "Dragonslayer&#x27;s Banner",
+          "qty": 1
+        },
+        {
+          "name": "Thunder Ore",
+          "qty": 1
+        }
+      ],
+      "5": [
+        {
+          "name": "Golden Anchor Chain",
+          "qty": 1
+        },
+        {
+          "name": "Ornamental Orb",
+          "qty": 1
+        },
+        {
+          "name": "Dragonflame Bone",
+          "qty": 2
+        },
+        {
+          "name": "Fortune Bean",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Dragonblood Essence",
+          "qty": 1
+        },
+        {
+          "name": "Messenger Bug Jar",
+          "qty": 1
+        },
+        {
+          "name": "Hallowgrove Codex",
+          "qty": 2
+        },
+        {
+          "name": "Incense Burner",
+          "qty": 2
+        }
+      ]
+    }
+  },
+  "collection_pedestal": {
+    "maxLevel": 1,
+    "levels": {}
+  },
+  "goddess_statue": {
+    "maxLevel": 8,
+    "levels": {
+      "2": [
+        {
+          "name": "Pearl Dust",
+          "qty": 1
+        },
+        {
+          "name": "Velgr Feather",
+          "qty": 1
+        },
+        {
+          "name": "Heavy Stone Block",
+          "qty": 2
+        },
+        {
+          "name": "Vine Bundle",
+          "qty": 1
+        }
+      ],
+      "3": [
+        {
+          "name": "Gem Mirror",
+          "qty": 1
+        },
+        {
+          "name": "Spirit Antler",
+          "qty": 2
+        },
+        {
+          "name": "Exotic Seed",
+          "qty": 3
+        },
+        {
+          "name": "Mutant Mycelium",
+          "qty": 2
+        }
+      ],
+      "4": [
+        {
+          "name": "Holy Sith Astrolabe",
+          "qty": 1
+        },
+        {
+          "name": "Norgard King&#x27;s Coin",
+          "qty": 1
+        },
+        {
+          "name": "Crimson Bat Eye",
+          "qty": 1
+        },
+        {
+          "name": "Lazurite",
+          "qty": 2
+        }
+      ],
+      "5": [
+        {
+          "name": "Frostbee Crystal Hive",
+          "qty": 1
+        },
+        {
+          "name": "Soul Jar",
+          "qty": 1
+        },
+        {
+          "name": "Spellbound Doll",
+          "qty": 1
+        },
+        {
+          "name": "Obsidian Ore",
+          "qty": 2
+        }
+      ],
+      "6": [
+        {
+          "name": "Kjernnos Idol",
+          "qty": 1
+        },
+        {
+          "name": "Celestigold",
+          "qty": 1
+        },
+        {
+          "name": "Dragonflame Bone",
+          "qty": 2
+        },
+        {
+          "name": "Pathfinder Lantern",
+          "qty": 1
+        }
+      ],
+      "7": [
+        {
+          "name": "Retribution Spearhead",
+          "qty": 1
+        },
+        {
+          "name": "Lost Pontiff&#x27;s Crown",
+          "qty": 1
+        },
+        {
+          "name": "Gold Ship Sculpture",
+          "qty": 1
+        },
+        {
+          "name": "Slumbering Dragon Statue",
+          "qty": 2
+        }
+      ],
+      "8": [
+        {
+          "name": "Gem of the Gods",
+          "qty": 1
+        },
+        {
+          "name": "Penitent&#x27;s Tear",
+          "qty": 1
+        },
+        {
+          "name": "Soulcomb Net",
+          "qty": 2
+        }
+      ]
+    }
+  }
+}
