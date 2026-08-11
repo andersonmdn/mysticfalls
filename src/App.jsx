@@ -5,10 +5,11 @@ import ItemsToKeep from './components/ItemsToKeep'
 import CampOverview from './components/CampOverview'
 import FilterBar from './components/FilterBar'
 
-const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Holy', 'Legendary']
+const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Legendary', 'Holy']
 
 const STORAGE_KEY = 'mysticfalls_levels'
 const NOTICE_KEY = 'mf_notice_dismissed'
+const FILTERS_KEY = 'mf_filters'
 
 function loadLevels() {
   try {
@@ -23,7 +24,29 @@ function saveLevels(levels) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(levels))
 }
 
+function loadFilters() {
+  try {
+    const stored = localStorage.getItem(FILTERS_KEY)
+    if (stored) {
+      const f = JSON.parse(stored)
+      return {
+        activeBuildingIds: f.activeBuildingIds ?? buildings.map(b => b.id),
+        activeRarities: f.activeRarities ?? ALL_RARITIES,
+        search: f.search ?? '',
+        onlyNext: f.onlyNext ?? false,
+      }
+    }
+  } catch {}
+  return {
+    activeBuildingIds: buildings.map(b => b.id),
+    activeRarities: ALL_RARITIES,
+    search: '',
+    onlyNext: false,
+  }
+}
+
 const _initial = loadLevels()
+const _initialFilters = loadFilters()
 
 function ConfirmModal({ onConfirm, onCancel }) {
   const cancelRef = useRef(null)
@@ -53,10 +76,10 @@ export default function App() {
   const [noticeDismissed, setNoticeDismissed] = useState(
     () => localStorage.getItem(NOTICE_KEY) === '1'
   )
-  const [search, setSearch] = useState('')
-  const [onlyNext, setOnlyNext] = useState(false)
-  const [activeBuildingIds, setActiveBuildingIds] = useState(buildings.map(b => b.id))
-  const [activeRarities, setActiveRarities] = useState(ALL_RARITIES)
+  const [search, setSearch] = useState(_initialFilters.search)
+  const [onlyNext, setOnlyNext] = useState(_initialFilters.onlyNext)
+  const [activeBuildingIds, setActiveBuildingIds] = useState(_initialFilters.activeBuildingIds)
+  const [activeRarities, setActiveRarities] = useState(_initialFilters.activeRarities)
   const [showResetModal, setShowResetModal] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -99,6 +122,10 @@ export default function App() {
     localStorage.setItem(NOTICE_KEY, '1')
     setNoticeDismissed(true)
   }
+
+  useEffect(() => {
+    localStorage.setItem(FILTERS_KEY, JSON.stringify({ activeBuildingIds, activeRarities, search, onlyNext }))
+  }, [activeBuildingIds, activeRarities, search, onlyNext])
 
   // Header progress stats
   const maxedCount = buildings.filter(b => (levels[b.id] ?? 1) >= b.maxLevel).length

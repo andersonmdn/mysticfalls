@@ -438,28 +438,6 @@ export const buildings = [
       ],
     },
   },
-  {
-    id: 'stardust_altar',
-    name: 'Stardust Altar',
-    icon: '⭐',
-    description: 'Altar de estrelas do acampamento',
-    priority: 10,
-    maxLevel: 4,
-    levels: {
-      2: null,
-      3: null,
-      4: null,
-    },
-  },
-  {
-    id: 'collection_pedestal',
-    name: 'Collection Pedestal',
-    icon: '🏺',
-    description: 'Pedestal de coleção do acampamento',
-    priority: 11,
-    maxLevel: 1,
-    levels: {},
-  },
 ]
 
 export const EMOJI_FALLBACK = {

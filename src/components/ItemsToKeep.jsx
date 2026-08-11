@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { buildings, ITEM_RARITIES } from '../data/upgrades'
 import ItemCard from './ItemCard'
 
-const RARITY_ORDER = ['Legendary', 'Holy', 'Epic', 'Excellent', 'Rare', 'Common']
+const RARITY_ORDER = ['Holy', 'Legendary', 'Epic', 'Excellent', 'Rare', 'Common']
 
 export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildings }) {
   const { activeBuildingIds, search, onlyNext, activeRarities } = filters

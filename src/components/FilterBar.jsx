@@ -1,6 +1,6 @@
 import { buildings } from '../data/upgrades'
 
-const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Holy', 'Legendary']
+const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Legendary', 'Holy']
 const RARITY_COLORS = {
   Common:    '#8a8a8a',
   Rare:      '#65cb70',
