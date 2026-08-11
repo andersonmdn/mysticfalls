@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import { buildings, ITEM_RARITIES } from '../data/upgrades'
 import ItemCard from './ItemCard'
 
+const RARITY_ORDER = ['Legendary', 'Holy', 'Epic', 'Excellent', 'Rare', 'Common']
+
 export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildings }) {
   const { activeBuildingIds, search, onlyNext, activeRarities } = filters
 
@@ -53,6 +55,18 @@ export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildi
     return filtered.sort((a, b) => b.totalQty - a.totalQty || a.name.localeCompare(b.name))
   }, [itemMap, search, activeRarities])
 
+  const groupedItems = useMemo(() => {
+    const byRarity = {}
+    for (const item of items) {
+      const rarity = ITEM_RARITIES[item.name] ?? 'Common'
+      if (!byRarity[rarity]) byRarity[rarity] = []
+      byRarity[rarity].push(item)
+    }
+    return RARITY_ORDER
+      .filter(r => byRarity[r]?.length > 0)
+      .map(r => ({ rarity: r, items: byRarity[r] }))
+  }, [items])
+
   const hasActiveFilter = activeBuildingIds.length < totalBuildings || activeRarities.length < 6
 
   if (items.length === 0) {
@@ -85,17 +99,24 @@ export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildi
         </div>
       )}
 
-      <div className="items-grid">
-        {items.map(item => (
-          <ItemCard
-            key={item.name}
-            name={item.name}
-            qty={item.nextQty ?? item.totalQty}
-            totalQty={item.totalQty}
-            sources={item.sources}
-          />
-        ))}
-      </div>
+      {groupedItems.map(({ rarity, items: groupItems }) => (
+        <div key={rarity} className="rarity-group">
+          <h3 className={`rarity-group-header rarity-${rarity.toLowerCase()}`}>
+            {rarity} <span className="rarity-group-count">({groupItems.length})</span>
+          </h3>
+          <div className="items-grid">
+            {groupItems.map(item => (
+              <ItemCard
+                key={item.name}
+                name={item.name}
+                qty={item.nextQty ?? item.totalQty}
+                totalQty={item.totalQty}
+                sources={item.sources}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

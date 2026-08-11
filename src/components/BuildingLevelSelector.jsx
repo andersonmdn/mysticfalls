@@ -31,7 +31,7 @@ export default function BuildingLevelSelector({ levels, onChange }) {
               <div className="building-row-progress-fill" style={{ width: `${pct}%` }} />
             </div>
 
-            <input
+            {/* <input
               type="range"
               min={1}
               max={b.maxLevel}
@@ -41,7 +41,7 @@ export default function BuildingLevelSelector({ levels, onChange }) {
               disabled={!hasData}
               aria-label={`Nível de ${b.name}`}
               aria-valuetext={`Nível ${currentLevel} de ${b.maxLevel}`}
-            />
+            /> */}
 
             <div className="level-ticks">
               {Array.from({ length: b.maxLevel }, (_, i) => i + 1).map(l => (

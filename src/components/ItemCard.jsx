@@ -43,7 +43,7 @@ export default function ItemCard({ name, qty, totalQty, sources }) {
           )}
         </div>
 
-        <div className="item-sources">
+        {/* <div className="item-sources">
           {sources.map((s, i) => (
             <span
               key={i}
@@ -53,7 +53,7 @@ export default function ItemCard({ name, qty, totalQty, sources }) {
               {s.buildingIcon} L{s.level}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   )
