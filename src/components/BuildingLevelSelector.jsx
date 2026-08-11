@@ -43,16 +43,22 @@ export default function BuildingLevelSelector({ levels, onChange }) {
                   onChange={e => onChange(b.id, parseInt(e.target.value))}
                   className="level-slider"
                   disabled={!hasData}
+                  aria-label={`Nível de ${b.name}`}
+                  aria-valuetext={`Nível ${currentLevel} de ${b.maxLevel}`}
                 />
                 <div className="level-ticks">
                   {Array.from({ length: b.maxLevel }, (_, i) => i + 1).map(l => (
-                    <span
+                    <button
                       key={l}
+                      type="button"
                       className={`tick ${l <= currentLevel ? 'tick-filled' : ''} ${l === currentLevel ? 'tick-current' : ''}`}
-                      onClick={() => hasData && onChange(b.id, l)}
+                      aria-label={`Nível ${l}`}
+                      aria-pressed={l === currentLevel}
+                      disabled={!hasData}
+                      onClick={() => onChange(b.id, l)}
                     >
                       {l}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>

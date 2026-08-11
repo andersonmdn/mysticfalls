@@ -38,6 +38,15 @@
   --shadow-glow: 0 0 20px rgba(201, 168, 76, 0.12);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
@@ -270,6 +279,9 @@ body {
 .tick:hover { background: var(--bg-elevated); color: var(--text-secondary); }
 .tick.tick-filled { background: rgba(201,168,76,0.08); color: var(--gold-dim); }
 .tick.tick-current { background: rgba(201,168,76,0.2); color: var(--gold); font-weight: 600; }
+button.tick { appearance: none; background: none; border: none; font: inherit; cursor: pointer; }
+.tick:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.filter-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* ── Filters Bar ──────────────────────────────────────────── */
 .filters-bar {
@@ -315,6 +327,7 @@ body {
 }
 .rarity-filter-btn.active {
   background: rgba(255,255,255,0.05);
+  font-weight: 700;
 }
 
 .search-wrap {
@@ -355,7 +368,7 @@ body {
   color: var(--text-secondary);
   user-select: none;
 }
-.toggle-input { display: none; }
+.toggle-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 .toggle-track {
   position: relative;
   width: 36px; height: 20px;
@@ -409,6 +422,40 @@ body {
   border-radius: 20px;
 }
 
+.qty-legend {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.filter-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.filter-summary-clear,
+.empty-clear-btn {
+  background: none;
+  border: none;
+  color: var(--gold-dim);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.filter-summary-clear:hover,
+.empty-clear-btn:hover { color: var(--gold); }
+
+.empty-clear-btn { font-size: 0.85rem; margin-top: 10px; display: block; }
+
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -437,9 +484,9 @@ body {
 .item-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--rc, var(--border));
+  border-left: 4px solid var(--rc, var(--border));
   border-radius: var(--radius-md);
-  padding: 14px;
+  padding: 14px 14px 14px 10px;
   display: flex;
   gap: 12px;
   align-items: flex-start;
@@ -536,4 +583,5 @@ body {
   .building-grid { grid-template-columns: 1fr; }
   .items-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
   .app-title { font-size: 1.5rem; }
+  .tick { min-height: 36px; display: flex; align-items: center; justify-content: center; }
 }

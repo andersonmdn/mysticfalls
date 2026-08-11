@@ -15,7 +15,7 @@ export default function ItemCard({ name, qty, totalQty, sources }) {
     <div className={`item-card ${rarityClass}`}>
       <div className="item-image-wrap">
         {showEmoji ? (
-          <span className="item-emoji">{emojiChar}</span>
+          <span className="item-emoji" role="img" aria-label={name}>{emojiChar}</span>
         ) : (
           <img
             src={src}
@@ -30,9 +30,9 @@ export default function ItemCard({ name, qty, totalQty, sources }) {
         <span className="rarity-badge">{rarity}</span>
         <div className="item-name">{name}</div>
         <div className="item-qty">
-          <span className="qty-total">{totalQty}x</span>
+          <span className="qty-total" title="Total necessário para maxar as estruturas selecionadas">{totalQty}x</span>
           {totalQty > qty && (
-            <span className="qty-detail"> ({qty}x próximo)</span>
+            <span className="qty-detail" title="Necessário apenas para o próximo upgrade"> ({qty}x próximo)</span>
           )}
         </div>
         <div className="item-sources">

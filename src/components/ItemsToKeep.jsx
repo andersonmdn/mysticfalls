@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { buildings, ITEM_RARITIES } from '../data/upgrades'
 import ItemCard from './ItemCard'
 
-export default function ItemsToKeep({ levels, filters }) {
+export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildings }) {
   const { activeBuildingIds, search, onlyNext, activeRarities } = filters
 
   const itemMap = useMemo(() => {
@@ -53,6 +53,8 @@ export default function ItemsToKeep({ levels, filters }) {
     return filtered.sort((a, b) => b.totalQty - a.totalQty || a.name.localeCompare(b.name))
   }, [itemMap, search, activeRarities])
 
+  const hasActiveFilter = activeBuildingIds.length < totalBuildings || activeRarities.length < 6
+
   if (items.length === 0) {
     return (
       <div className="empty-state">
@@ -60,7 +62,7 @@ export default function ItemsToKeep({ levels, filters }) {
           ? <><div className="empty-icon">🏆</div><p>Todas as estruturas estão no nível máximo!</p></>
           : search
           ? <><div className="empty-icon">🔍</div><p>Nenhum item encontrado para "<strong>{search}</strong>"</p></>
-          : <><div className="empty-icon">✅</div><p>Nenhum item para guardar com os filtros atuais.</p></>
+          : <><div className="empty-icon">🔧</div><p>Todos os itens estão ocultos pelos filtros ativos.</p><button className="empty-clear-btn" onClick={clearFilters}>Limpar todos os filtros</button></>
         }
       </div>
     )
@@ -70,13 +72,21 @@ export default function ItemsToKeep({ levels, filters }) {
     <div className="items-section">
       <div className="items-header">
         <h2 className="section-title">Itens a Guardar</h2>
-        <span className="items-count">{items.length} {items.length === 1 ? 'item' : 'itens'}</span>
+        <span className="items-count" aria-live="polite">{items.length} {items.length === 1 ? 'item' : 'itens'}</span>
       </div>
       <p className="section-subtitle">
         {onlyNext
           ? 'Apenas os itens necessários para o próximo upgrade de cada estrutura.'
           : 'Todos os itens necessários para maxar as estruturas selecionadas.'}
       </p>
+      <p className="qty-legend">Total = soma de todos os upgrades futuros · <em>N próximo</em> = apenas o próximo nível de cada estrutura</p>
+      {hasActiveFilter && (
+        <div className="filter-summary">
+          {activeBuildingIds.length < totalBuildings && <span>{activeBuildingIds.length} de {totalBuildings} estruturas</span>}
+          {activeRarities.length < 6 && <span>{activeRarities.length} raridades</span>}
+          <button className="filter-summary-clear" onClick={clearFilters}>Limpar filtros</button>
+        </div>
+      )}
       <div className="items-grid">
         {items.map(item => (
           <ItemCard

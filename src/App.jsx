@@ -62,6 +62,12 @@ export default function App() {
     )
   }, [])
 
+  const clearFilters = useCallback(() => {
+    setActiveBuildingIds(buildings.map(b => b.id))
+    setActiveRarities(ALL_RARITIES)
+    setSearch('')
+  }, [])
+
   const resetAll = () => {
     if (!window.confirm('Resetar todos os níveis para 1? Esta ação não pode ser desfeita.')) return
     const defaults = Object.fromEntries(buildings.map(b => [b.id, 1]))
@@ -90,7 +96,7 @@ export default function App() {
             rel="noopener noreferrer"
             className="source-link"
           >
-            📖 Fonte: Game Rant
+            📖 Ver guia completo
           </a>
         </div>
         {storageError && (
@@ -132,6 +138,7 @@ export default function App() {
                   key={r}
                   className={`filter-btn rarity-filter-btn ${activeRarities.includes(r) ? 'active' : ''}`}
                   onClick={() => toggleRarity(r)}
+                  aria-pressed={activeRarities.includes(r)}
                   style={activeRarities.includes(r) ? { borderColor: RARITY_COLORS[r], color: RARITY_COLORS[r] } : {}}
                 >
                   {r}
@@ -177,6 +184,8 @@ export default function App() {
         <ItemsToKeep
           levels={levels}
           filters={{ activeBuildingIds, search, onlyNext, activeRarities }}
+          clearFilters={clearFilters}
+          totalBuildings={buildings.length}
         />
       </main>
 
