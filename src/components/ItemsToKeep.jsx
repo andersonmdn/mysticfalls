@@ -4,7 +4,7 @@ import ItemCard from './ItemCard'
 
 const RARITY_ORDER = ['Holy', 'Legendary', 'Epic', 'Excellent', 'Rare', 'Common']
 
-export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildings }) {
+export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildings, inventory = {}, onInventoryChange }) {
   const { activeBuildingIds, search, onlyNext, activeRarities } = filters
 
   const itemMap = useMemo(() => {
@@ -112,6 +112,8 @@ export default function ItemsToKeep({ levels, filters, clearFilters, totalBuildi
                 qty={item.nextQty ?? item.totalQty}
                 totalQty={item.totalQty}
                 sources={item.sources}
+                inventoryQty={inventory[item.name] ?? 0}
+                onInventoryChange={onInventoryChange}
               />
             ))}
           </div>

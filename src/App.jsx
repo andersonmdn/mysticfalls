@@ -10,6 +10,7 @@ const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Legendary', 'Holy'
 const STORAGE_KEY = 'mysticfalls_levels'
 const NOTICE_KEY = 'mf_notice_dismissed'
 const FILTERS_KEY = 'mf_filters'
+const INVENTORY_KEY = 'mf_inventory'
 
 function loadLevels() {
   try {
@@ -22,6 +23,18 @@ function loadLevels() {
 
 function saveLevels(levels) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(levels))
+}
+
+function loadInventory() {
+  try {
+    const stored = localStorage.getItem(INVENTORY_KEY)
+    if (stored) return JSON.parse(stored)
+  } catch {}
+  return {}
+}
+
+function saveInventory(inv) {
+  localStorage.setItem(INVENTORY_KEY, JSON.stringify(inv))
 }
 
 function loadFilters() {
@@ -70,6 +83,38 @@ function ConfirmModal({ onConfirm, onCancel }) {
   )
 }
 
+function UpgradeModal({ building, nextLevel, cost, onConfirm, onCancel }) {
+  const cancelRef = useRef(null)
+  useEffect(() => {
+    cancelRef.current?.focus()
+    const onKey = e => { if (e.key === 'Escape') onCancel() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onCancel])
+  return (
+    <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="upgrade-modal-title">
+      <div className="modal-card">
+        <h3 className="modal-title" id="upgrade-modal-title">
+          Upar {building.name} para Nível {nextLevel}?
+        </h3>
+        <p className="modal-body">Os seguintes materiais serão consumidos do seu inventário:</p>
+        <ul className="upgrade-cost-list">
+          {cost.map(({ name, qty }) => (
+            <li key={name} className="upgrade-cost-item">
+              <span className="upgrade-cost-qty">−{qty}×</span>
+              <span className="upgrade-cost-name">{name}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="modal-actions">
+          <button className="modal-btn modal-btn-cancel" ref={cancelRef} onClick={onCancel}>Cancelar</button>
+          <button className="modal-btn modal-btn-confirm" onClick={onConfirm}>Confirmar Upgrade</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function App() {
   const [levels, setLevels] = useState(_initial.data)
   const [storageError, setStorageError] = useState(_initial.corrupt)
@@ -80,6 +125,8 @@ export default function App() {
   const [onlyNext, setOnlyNext] = useState(_initialFilters.onlyNext)
   const [activeBuildingIds, setActiveBuildingIds] = useState(_initialFilters.activeBuildingIds)
   const [activeRarities, setActiveRarities] = useState(_initialFilters.activeRarities)
+  const [inventory, setInventory] = useState(loadInventory)
+  const [upgradeRequest, setUpgradeRequest] = useState(null)
   const [showResetModal, setShowResetModal] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -90,6 +137,37 @@ export default function App() {
       return next
     })
   }, [])
+
+  const handleInventoryChange = useCallback((itemName, qty) => {
+    setInventory(prev => {
+      const next = { ...prev, [itemName]: Math.max(0, qty) }
+      saveInventory(next)
+      return next
+    })
+  }, [])
+
+  const handleUpgradeRequest = useCallback((buildingId) => {
+    const building = buildings.find(b => b.id === buildingId)
+    const nextLevel = (levels[buildingId] ?? 1) + 1
+    const cost = building.levels[nextLevel]
+    if (!cost) return
+    setUpgradeRequest({ building, nextLevel, cost })
+  }, [levels])
+
+  const confirmUpgrade = useCallback(() => {
+    if (!upgradeRequest) return
+    const { building, nextLevel, cost } = upgradeRequest
+    setInventory(prev => {
+      const next = { ...prev }
+      for (const { name, qty } of cost) {
+        next[name] = Math.max(0, (next[name] ?? 0) - qty)
+      }
+      saveInventory(next)
+      return next
+    })
+    handleLevelChange(building.id, nextLevel)
+    setUpgradeRequest(null)
+  }, [upgradeRequest, handleLevelChange])
 
   const toggleBuilding = useCallback((id) => {
     setActiveBuildingIds(prev =>
@@ -175,7 +253,7 @@ export default function App() {
 
       <aside className={`app-sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Estruturas do acampamento">
         <CampOverview levels={levels} onReset={resetAll} />
-        <BuildingLevelSelector levels={levels} onChange={handleLevelChange} />
+        <BuildingLevelSelector levels={levels} onChange={handleLevelChange} inventory={inventory} onUpgrade={handleUpgradeRequest} />
       </aside>
 
       {sidebarOpen && (
@@ -204,6 +282,8 @@ export default function App() {
           filters={{ activeBuildingIds, search, onlyNext, activeRarities }}
           clearFilters={clearFilters}
           totalBuildings={buildings.length}
+          inventory={inventory}
+          onInventoryChange={handleInventoryChange}
         />
 
         <footer className="app-footer">
@@ -213,6 +293,15 @@ export default function App() {
 
       {showResetModal && (
         <ConfirmModal onConfirm={confirmReset} onCancel={() => setShowResetModal(false)} />
+      )}
+      {upgradeRequest && (
+        <UpgradeModal
+          building={upgradeRequest.building}
+          nextLevel={upgradeRequest.nextLevel}
+          cost={upgradeRequest.cost}
+          onConfirm={confirmUpgrade}
+          onCancel={() => setUpgradeRequest(null)}
+        />
       )}
     </div>
   )

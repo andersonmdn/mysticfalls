@@ -16,15 +16,24 @@ No lint, test runner, or TypeScript configured.
 
 React 18 + Vite SPA. No router — single page. All styles in `src/index.css`.
 
-**Data flow:**
-1. `src/data/upgrades.js` — static source of truth. Exports `buildings`: an array of building objects, each with `id`, `name`, `icon`, `maxLevel`, and a `levels` map (`{ [level]: [{name, qty}] }`) listing items required for each upgrade.
-2. `src/App.jsx` — root state: `levels` (building id → current level, persisted to `localStorage`), filter state (`activeBuildingIds`, `activeRarities`, `search`, `onlyNext`). Passes `levels` down to both panels.
-3. `src/components/BuildingLevelSelector.jsx` — renders a slider + tick marks per building so the user sets their current level. Calls `onChange(buildingId, level)` up to App.
-4. `src/components/ItemsToKeep.jsx` — computes aggregate item quantities from `levels` + `upgrades.js`, applies all active filters, and renders the grid.
-5. `src/components/ItemCard.jsx` — single item card; uses `useFandomImage` to fetch a wiki thumbnail.
-6. `src/hooks/useFandomImage.js` — fetches item images from the Fandom Wiki API.
+**Layout:** sidebar (`app-sidebar`) + main content. The sidebar is collapsible on mobile via a hamburger toggle in the header. The sidebar overlay (`sidebar-overlay`) closes it on backdrop click.
 
-**Persistence:** `localStorage` key `mysticfalls_levels` stores the `{[buildingId]: level}` map. Key `mf_notice_dismissed` stores the one-time info banner dismissal.
+**Data flow:**
+1. `src/data/upgrades.js` — static source of truth. Exports `buildings`: an array of building objects, each with `id`, `name`, `icon`, `priority`, `maxLevel`, and a `levels` map (`{ [level]: [{name, qty, rarity}] }`) listing items required for each upgrade.
+2. `src/App.jsx` — root state: `levels` (building id → current level), filter state (`activeBuildingIds`, `activeRarities`, `search`, `onlyNext`). Both are persisted to `localStorage`. Also owns the reset confirmation modal.
+3. `src/components/CampOverview.jsx` — sidebar widget showing overall progress bar (maxed/total buildings) and the global reset button.
+4. `src/components/BuildingLevelSelector.jsx` — renders a slider + tick marks per building so the user sets their current level. Calls `onChange(buildingId, level)` up to App.
+5. `src/components/FilterBar.jsx` — three-row filter UI: text search, building pills, rarity pills. Receives all filter state and callbacks from App. The `onlyNext` toggle switches between aggregating only the immediately next upgrade level vs. all future levels.
+6. `src/components/ItemsToKeep.jsx` — computes aggregate item quantities from `levels` + `upgrades.js`, applies all active filters, and renders the grid.
+7. `src/components/ItemCard.jsx` — single item card; uses `useFandomImage` to fetch a wiki thumbnail.
+8. `src/hooks/useFandomImage.js` — fetches item images from the Fandom Wiki API.
+
+**Rarities:** `Common`, `Rare`, `Excellent`, `Epic`, `Legendary`, `Holy` — defined in both `App.jsx` (`ALL_RARITIES`) and `FilterBar.jsx`. Each item entry in `upgrades.js` can carry a `rarity` field used for filtering.
+
+**Persistence:** three `localStorage` keys:
+- `mysticfalls_levels` — `{[buildingId]: level}` map
+- `mf_filters` — `{activeBuildingIds, activeRarities, search, onlyNext}` filter snapshot
+- `mf_notice_dismissed` — one-time info banner dismissal flag
 
 ## Adding or Updating Upgrade Data
 
@@ -49,6 +58,3 @@ All game data lives in `src/data/upgrades.js`. Each building entry:
 
 The UI is in Brazilian Portuguese. Keep all user-facing strings in Portuguese.
 
-## Active Work
-
-`plans/todo.md` tracks a pending accessibility and UI improvement task (WCAG fixes, empty-state improvements, CSS minor fixes) generated from an Impeccable critique.
