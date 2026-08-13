@@ -12,9 +12,9 @@ export default function ItemCard({ name, qty, totalQty, sources, inventoryQty = 
   const rarity = ITEM_RARITIES[name] ?? 'Common'
   const rarityClass = `rarity-${rarity.toLowerCase()}`
 
+  const fillPct = Math.min((inventoryQty / qty) * 100, 100)
+  const surplusQty = Math.max(0, inventoryQty - qty)
   const hasSufficient = inventoryQty >= qty
-  const lacking = qty - inventoryQty
-  const sobrando = Math.max(0, inventoryQty - totalQty)
 
   return (
     <div className={`item-card ${rarityClass}`} onClick={() => setOpen(o => !o)}>
@@ -36,34 +36,20 @@ export default function ItemCard({ name, qty, totalQty, sources, inventoryQty = 
         <div className="item-name">{name}</div>
 
         <div className="item-qty">
-          <div className="qty-row">
-            <span className="qty-label">Total</span>
-            <span className="qty-total">{totalQty}×</span>
+          <div className="inv-progress-wrap">
+            <div className="inv-progress-track">
+              <div
+                className={`inv-progress-fill${hasSufficient ? ' fill-ok' : ''}`}
+                style={{ width: `${fillPct}%` }}
+              />
+            </div>
+            <div className="inv-progress-meta">
+              <span className={`inv-progress-count${hasSufficient && !surplusQty ? ' count-ok' : ''}`}>
+                {Math.min(inventoryQty, qty)} / {qty}{hasSufficient && !surplusQty ? ' ✓' : ''}
+              </span>
+              {surplusQty > 0 && <span className="inv-progress-surplus">+{surplusQty}</span>}
+            </div>
           </div>
-          {totalQty > qty && (
-            <div className="qty-row">
-              <span className="qty-label">Próximo</span>
-              <span className="qty-next">{qty}×</span>
-            </div>
-          )}
-          <div className="qty-row">
-            <span className="qty-label">Em Posse</span>
-            <span className={`qty-owned ${hasSufficient ? 'owned-ok' : 'owned-low'}`}>
-              {inventoryQty}× {hasSufficient ? '✓' : '✕'}
-            </span>
-          </div>
-          {!hasSufficient && (
-            <div className="qty-row">
-              <span className="qty-label">Faltam</span>
-              <span className="qty-lack">{lacking}×</span>
-            </div>
-          )}
-          {sobrando > 0 && (
-            <div className="qty-row">
-              <span className="qty-label">Sobrando</span>
-              <span className="qty-surplus">{sobrando}×</span>
-            </div>
-          )}
         </div>
 
         {open && (
