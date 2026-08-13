@@ -14,6 +14,7 @@ export default function ItemCard({ name, qty, totalQty, sources, inventoryQty = 
 
   const hasSufficient = inventoryQty >= qty
   const lacking = qty - inventoryQty
+  const sobrando = Math.max(0, inventoryQty - totalQty)
 
   return (
     <div className={`item-card ${rarityClass}`} onClick={() => setOpen(o => !o)}>
@@ -55,6 +56,12 @@ export default function ItemCard({ name, qty, totalQty, sources, inventoryQty = 
             <div className="qty-row">
               <span className="qty-label">Faltam</span>
               <span className="qty-lack">{lacking}×</span>
+            </div>
+          )}
+          {sobrando > 0 && (
+            <div className="qty-row">
+              <span className="qty-label">Sobrando</span>
+              <span className="qty-surplus">{sobrando}×</span>
             </div>
           )}
         </div>
