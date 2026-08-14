@@ -4,6 +4,7 @@ import BuildingLevelSelector from './components/BuildingLevelSelector'
 import ItemsToKeep from './components/ItemsToKeep'
 import CampOverview from './components/CampOverview'
 import FilterBar from './components/FilterBar'
+import HelpTour from './components/HelpTour'
 
 const ALL_RARITIES = ['Common', 'Rare', 'Excellent', 'Epic', 'Legendary', 'Holy']
 
@@ -11,6 +12,7 @@ const STORAGE_KEY = 'mysticfalls_levels'
 const NOTICE_KEY = 'mf_notice_dismissed'
 const FILTERS_KEY = 'mf_filters'
 const INVENTORY_KEY = 'mf_inventory'
+const TOUR_KEY = 'mf_tour_done'
 
 function loadLevels() {
   try {
@@ -129,6 +131,7 @@ export default function App() {
   const [upgradeRequest, setUpgradeRequest] = useState(null)
   const [showResetModal, setShowResetModal] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [showTour, setShowTour] = useState(() => !localStorage.getItem(TOUR_KEY))
 
   const handleLevelChange = useCallback((buildingId, level) => {
     setLevels(prev => {
@@ -235,6 +238,13 @@ export default function App() {
             <span className="header-stat header-stat-maxed">{maxedCount}/{buildings.length} no máx.</span>
             <span className="header-stat header-stat-pending">{pendingCount} níveis pendentes</span>
           </div>
+
+          <button
+            className="help-btn"
+            onClick={() => setShowTour(true)}
+            aria-label="Abrir tutorial"
+            title="Como funciona"
+          >?</button>
         </div>
 
         {storageError && (
@@ -302,6 +312,12 @@ export default function App() {
           onConfirm={confirmUpgrade}
           onCancel={() => setUpgradeRequest(null)}
         />
+      )}
+      {showTour && (
+        <HelpTour onClose={() => {
+          localStorage.setItem(TOUR_KEY, '1')
+          setShowTour(false)
+        }} />
       )}
     </div>
   )
